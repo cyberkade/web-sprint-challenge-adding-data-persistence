@@ -15,8 +15,8 @@ const resourcesRouter = express.Router()
 
     resourcesRouter.post('/', async (req, res, next)=> {
         try {
-            const newResource = await Resources.insert(req.body)
-            res.status(200).json(newResource)
+            await Resources.insert(req.body)
+            res.status(201).json(req.body)
         }
         catch (err) {
             next(err)
